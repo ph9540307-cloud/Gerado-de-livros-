@@ -1,0 +1,9 @@
+<!-- This logic is handled inside src/app.component.ts inline template for simplicity in this specific setup, but here is the representation -->
+<div class="flex h-screen w-screen bg-slate-100 overflow-hidden">
+  <aside class="w-64 flex-shrink-0 h-full z-10">
+    <app-sidebar></app-sidebar>
+  </aside>
+  <main class="flex-1 h-full relative">
+    <router-outlet></router-outlet>
+  </main>
+</div>
