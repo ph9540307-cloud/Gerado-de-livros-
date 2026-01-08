@@ -290,9 +290,20 @@ export class BookService {
 
     this.downloadFile(text, `${p.title.replace(/\s+/g, '_')}.txt`);
   }
+  
+  exportBookAsJson(): void {
+    const p = this.currentProject();
+    if (!p) return;
+    this.exportProjectAsJson(p);
+  }
 
-  private downloadFile(content: string, filename: string) {
-    const blob = new Blob([content], { type: 'text/plain' });
+  exportProjectAsJson(project: BookProject): void {
+    const jsonContent = JSON.stringify(project, null, 2);
+    this.downloadFile(jsonContent, `${project.title.replace(/\s+/g, '_')}_backup.json`, 'application/json');
+  }
+
+  private downloadFile(content: string, filename: string, mimeType: string = 'text/plain') {
+    const blob = new Blob([content], { type: mimeType });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

@@ -84,14 +84,20 @@ import { RouterModule, Router } from '@angular/router';
       </div>
 
       <!-- Footer Actions -->
-      <div class="p-4 border-t border-slate-200 bg-slate-50">
-        <div class="grid grid-cols-2 gap-2">
-          <a routerLink="/stats" class="text-center py-2 px-3 bg-white border border-slate-200 rounded text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 transition-colors shadow-sm">
+      <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+        <a routerLink="/stats" class="block w-full text-center py-2 px-3 bg-white border border-slate-200 rounded text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 transition-colors shadow-sm">
             Estatísticas
-          </a>
-          <button (click)="bookService.exportBook()" class="py-2 px-3 bg-slate-800 text-white rounded text-sm hover:bg-slate-900 transition-colors shadow-sm">
-            Exportar
-          </button>
+        </a>
+        <div class="space-y-1">
+            <p class="text-[11px] font-semibold text-slate-400 text-center uppercase tracking-wide">Exportar</p>
+            <div class="grid grid-cols-2 gap-2">
+                <button (click)="bookService.exportBook()" class="py-2 px-2 bg-slate-800 text-white rounded text-xs hover:bg-slate-900 transition-colors shadow-sm font-medium">
+                    .TXT
+                </button>
+                <button (click)="bookService.exportBookAsJson()" class="py-2 px-2 bg-indigo-600 text-white rounded text-xs hover:bg-indigo-700 transition-colors shadow-sm font-medium">
+                    .JSON
+                </button>
+            </div>
         </div>
       </div>
     </div>
